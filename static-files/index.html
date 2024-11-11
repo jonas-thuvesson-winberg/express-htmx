@@ -3,20 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/htmx.org@1.5.0"></script>
-    <script src="https://unpkg.com/idiomorph@0.3.0/dist/idiomorph-ext.min.js"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/json-enc.js"></script>
-    <script>
-      var getMessage = () => {
-        console.log("Getting message");
-        return "Hello from JS";
-      };
-    </script>
+
     <title>Home</title>
   </head>
   <body>
     <h1>Home</h1>
-    <div id="content-div">Init content</div>
+
+    <div id="content-div" style="padding: 5px">
+      <h1>Init content</h1>
+    </div>
     <input type="text" name="anotherMessage" />
     <button
       hx-post="/content"
@@ -28,5 +23,15 @@
     >
       Load content
     </button>
+
+    <script src="https://unpkg.com/htmx.org@1.5.0"></script>
+    <script src="https://unpkg.com/idiomorph@0.3.0/dist/idiomorph-ext.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/json-enc.js"></script>
+    <script>
+      var getMessage = () => {
+        console.log("Getting message");
+        return "Hello from JS";
+      };
+    </script>
   </body>
 </html>
