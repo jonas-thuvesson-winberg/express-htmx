@@ -1,0 +1,16 @@
+<h1>Home</h1>
+
+<div id="content-div" style="padding: 5px">
+  <h1>Init content</h1>
+</div>
+<input type="text" name="anotherMessage" />
+<button
+  hx-post="/content"
+  hx-swap="morph:innerHTML"
+  hx-target="#content-div"
+  hx-ext="json-enc"
+  hx-vals="js:{ message: getMessage(), somethingStatic: 'Hello there' }"
+  hx-include="[name='anotherMessage']"
+>
+  Load content
+</button>

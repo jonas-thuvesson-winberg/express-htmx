@@ -4,10 +4,10 @@
   "main": "dist/server.js",
   "scripts": {
     "tsc": "tsc",
-    "clean-dist": "rm -rf ./dist && mkdir ./dist",
-    "copy-static": "cp -r ./static-files/* ./dist",
-    "start": "npm run clean-dist && npm run tsc && npm run copy-static && node ./dist/server.js",
-    "dev": "nodemon --exec 'npm start' --watch ./src/* --watch ./static-files/views/* --watch ./static-files/views/layouts/* --watch ./static-files/*"
+    "clean-dist": "rm -rf ./dist && mkdir ./dist && mkdir ./dist/views",
+    "copy-views": "cp -r ./views/* ./dist/views",
+    "start": "npm run clean-dist && npm run tsc && npm run copy-views && node ./dist/server.js",
+    "dev": "nodemon --exec 'npm start' --watch ./src/* --watch ./views/* --watch ./views/layouts/* --watch ./views/fragments/*"
   },
   "author": "",
   "license": "ISC",

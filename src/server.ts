@@ -13,13 +13,13 @@ app.use(express.json());
 
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
-app.set("views", "dist/views");
+app.set("views", path.join("dist", "views"));
 
 const port = 3000;
 
 const serveHome = (_req: Request, res: Response) => {
   console.log("root");
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.render("home", { title: "This is home" });
 };
 
 app.get("/", serveHome);
@@ -28,7 +28,7 @@ app.post("/content", (req: Request<{}, {}, ContentPayload>, res: Response) => {
   const payload = req.body;
   if (payload) console.log("payload", payload);
   console.log("fetching content for hx-swap");
-  res.render("content", payload);
+  res.render("content", { ...payload, layout: "fragment" });
 });
 
 app.get("*", function (_req, res: Response) {
